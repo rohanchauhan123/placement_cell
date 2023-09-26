@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('_bootstrap_meta')%>
+    <title>Home</title>
+    <style>
+        /* Custom CSS for the table */
+        .table-container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .table-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .table-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333333;
+        }
+
+        .add-button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            padding: 10px 20px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .add-button:hover {
+            background-color: #218838;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            text-align: center;
+            padding: 12px;
+        }
+
+        th {
+            background-color: #343a40;
+            color: #fff;
+        }
+
+        td {
+            background-color: #f8f9fa;
+        }
+
+        tr:nth-child(even) {
+            background-color: #e2e8ee;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+        }
+
+        .delete-button {
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            padding: 8px 16px;
+            cursor: pointer;
+        }
+
+        .delete-button:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+
+<body>
+    <%- include('_header') %>
+    <div class="w-75 mx-auto mt-5 table-container">
+        <div class="table-header">
+            <h2 class="table-title">List of Students</h2>
+            <a href="/students/create" class="add-button">+ Add Student</a>
+        </div>
+
+        <% if(students.length > 0) { %>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Batch</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Contact</th>
+                        <th>DSA</th>
+                        <th>WEB</th>
+                        <th>REACT</th>
+                        <th>Interview</th>
+                        <th class="text-end">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="myTable">
+                    <% for(let student of students) { %>
+                        <tr>
+                            <td><%= student.batch %></td>
+                            <td><%= student.name %></td>
+                            <td><%= student.email %></td>
+                            <td><%= student.contactNumber %></td>
+                            <td><%= student.dsa %></td>
+                            <td><%= student.webd %></td>
+                            <td><%= student.react %></td>
+                            <td>
+                                <% if(student.interviews.length) { %>
+                                    <% for(let company of student.interviews) { %>
+                                        <a href="#"><%= company.company %></a>
+                                    <% } %>
+                                <% } else { %>
+                                    NONE
+                                <% } %>
+                            </td>
+                            <td class="action-buttons">
+                                <a href="/students/delete/<%= student.id %>" class="delete-button">Delete</a>
+                            </td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <div class="w-75 mx-auto mt-5">
+                <h2>No Records Found</h2>
+            </div>
+        <% } %>
+    </div>
+    <%- include('_bootstrap_script')%>
+</body>
+</html>

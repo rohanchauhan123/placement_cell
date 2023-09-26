@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('_bootstrap_meta')%>
+    <title>Create Student Form</title>
+    <style>
+        body {
+            background-color: #e6e9e9;
+            font-family: Arial, sans-serif;
+        }
+
+        form {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 50px 70px;
+            margin: 100px auto;
+            max-width: 600px;
+        }
+
+        h3 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            padding: 10px 40px 10px 10px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 8 8"><path d="M4 6l-2 2h4l-2-2z"/></svg>') no-repeat;
+            background-position: right 10px top 50%;
+            background-size: 14px;
+        }
+
+        button {
+            background-color: #28a745;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+            font-size: 18px;
+            padding: 10px 20px;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+
+<body>
+    <%- include('_header') %>
+    <form class="w-50 mx-auto mt-4" action="/students/create-student" method="post">
+        <h3>Add Student</h3>
+        <div>
+            <label for="batch">Batch</label>
+            <input type="text" id="batch" name="batch" required>
+        </div>
+        <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div>
+            <label for="email">Email address</label>
+            <input type="email" id="email" placeholder="abc@gmail.com" name="email" required>
+        </div>
+        <div>
+            <label for="contactNumber">Mobile Number</label>
+            <input type="text" id="contactNumber" name="contactNumber" required>
+        </div>
+        <div>
+            <label for="college">College Name</label>
+            <input type="text" id="college" name="college" required>
+        </div>
+        <div>
+            <label for="placement">Placement Status</label>
+            <select id="placement" name="placement" required>
+                <option value="Placed">Placed</option>
+                <option value="Not Placed">Not Placed</option>
+            </select>
+        </div>
+        <div style="display: flex; justify-content: space-between;">
+            <div style="flex-basis: 30%;">
+                <label for="dsa">DSA</label>
+                <input type="text" id="dsa" name="dsa" required>
+            </div>
+            <div style="flex-basis: 30%;">
+                <label for="webd">Web Development</label>
+                <input type="text" id="webd" name="webd" required>
+            </div>
+            <div style="flex-basis: 30%;">
+                <label for="react">React</label>
+                <input type="text" id="react" name="react" required>
+            </div>
+        </div>
+        <button type="submit">Create Student</button>
+    </form>
+    <%- include('_bootstrap_script')%>
+</body>
+</html>

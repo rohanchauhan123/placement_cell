@@ -1,0 +1,54 @@
+<style>
+	/* Additional CSS for header */
+header {
+    background-color: #343a40; /* Dark gray background */
+    padding: 10px 0;
+}
+
+.navbar-brand {
+    font-size: 1.8em;
+}
+
+.navbar-toggler-icon {
+    border: 2px solid #fff; /* White border for toggler icon */
+}
+
+.navbar-toggler {
+    border-color: #fff; /* White border for toggler button */
+}
+
+.nav-link {
+    font-size: 1.2em;
+    margin-left: 20px; /* Add space between links */
+}
+
+.nav-link:hover {
+    color: #17a2b8; /* Change color on hover */
+}
+
+</style>
+<header>
+    <% if (locals.user) { %>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">Placement Cell</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/company/home">Company List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/users/download-csv">Download Report</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/users/signout">Sign Out</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <% } %>
+</header>

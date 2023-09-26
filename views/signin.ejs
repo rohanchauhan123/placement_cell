@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('_bootstrap_meta')%>
+    <title>Sign In</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Change the font */
+            background-color: #f0f0f0; /* Light gray background */
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            background: #fff;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-register {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <%- include('_header')%>
+    <div class="container">
+        <div class="text-center mb-3">
+            <h4>Sign In</h4>
+        </div>
+        <form action="/users/create-session" method="POST">
+            <div class="form-group">
+                <label for="email">Enter Email</label>
+                <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+                <label for="password">Enter Password</label>
+                <input type="password" id="password" name="password" required />
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+        </form>
+        <div class="text-center mt-3">
+            <p>No Account? <a href="/users/signup" class="btn-register">Register</a></p>
+        </div>
+    </div>
+    <%- include('_bootstrap_script')%>
+</body>
+</html>
